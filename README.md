@@ -2,6 +2,8 @@
 
 Compare three deterministic ways to shrink an agent trace and see which keeps it replayable. Given a JSONL event log (role/content/optional tool+args), it runs truncate, summarize, and structured compression, then reports each strategy's compression ratio against replayability — how much decision-critical structure survives. Pure Python, standard library only, no LLM in the loop.
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Agent traces get long: tool outputs alone can be megabytes. Every team compresses them somehow — cut the middle, digest the outputs, keep only the skeleton — but the trade-off is never written down. Truncation silently deletes the steps that explain a decision; aggressive digesting keeps step count but loses the arguments that made each step different. Without a shared metric, "compressed trace" means whatever the last refactor left behind.
